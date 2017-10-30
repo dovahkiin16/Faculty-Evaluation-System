@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark indigo">
     <div class="container">
-        <a class="navbar-brand" href="#">FIES</a>
+        <a class="navbar-brand" href="#"><img src="<?php echo base_url();?>img/ico.png" height="30" /> Tibag High School</a>
         <button class="navbar-toggler"
                 type="button"
                 data-toggle="collapse"

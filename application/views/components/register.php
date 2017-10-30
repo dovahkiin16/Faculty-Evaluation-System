@@ -43,8 +43,8 @@
                     </div>
                     <!--Body-->
                     <div class="md-form">
-                        <input type="text" id="username" name="username" class="form-control" required>
-                        <label for="username">Username</label>
+                        <input type="number" id="username" name="username" class="form-control" required>
+                        <label for="username">ID Number</label>
                     </div>
 
                     <div class="md-form pb-3">

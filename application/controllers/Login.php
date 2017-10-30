@@ -22,7 +22,7 @@ class Login extends CI_Controller
         if($this->user_model->signin()) {
             $this->redir_if_loggedIn();
         } else {
-            $this->session->set_flashdata('login_err', 'Username or password Incorrect');
+            $this->session->set_flashdata('login_err', 'ID Number or password Incorrect');
             redirect('/login', 'refresh');
         }
     }

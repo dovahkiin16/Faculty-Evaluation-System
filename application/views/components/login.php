@@ -20,12 +20,12 @@
                     <?php endif; ?>
                     <div class="md-form">
                         <i class="fa fa-envelope prefix grey-text"></i>
-                        <input type="text" id="username" name="username" class="form-control" />
-                        <label for="username">Username</label>
+                        <input type="number" id="username" name="username" class="form-control" required />
+                        <label for="username">ID Number</label>
                     </div>
                     <div class="md-form">
                         <i class="fa fa-lock prefix grey-text"></i>
-                        <input type="password" id="password" name="pass" class="form-control" />
+                        <input type="password" id="password" name="pass" class="form-control" required />
                         <label for="password">Password</label>
                     </div>
                     <div class="row d-flex align-items-center mb-4">

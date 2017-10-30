@@ -43,12 +43,20 @@ class Admin extends CI_Controller
 
         usort($items, function($a, $b){ return strcmp($a["lname"], $b["lname"]); });
 
-        $pdf = new Pdf('P', 'mm', 'A4', true, 'UTF-8', false);
+        $PDF_HEADER_LOGO = NULL;//any image file. check correct path.
+        $PDF_HEADER_LOGO_WIDTH = "20";
+        $PDF_HEADER_TITLE = "This is my Title";
+        $PDF_HEADER_STRING = "Tel 1234567896 Fax 987654321\n"
+            . "E abc@gmail.com\n"
+            . "www.abc.com";
+
+        $pdf = new Pdf('P', 'px', 'A4', true, 'UTF-8', false);
         $pdf->SetTitle('My Title');
         $pdf->SetHeaderMargin(30);
         $pdf->SetTopMargin(20);
         $pdf->setFooterMargin(20);
         $pdf->SetAutoPageBreak(true);
+        $pdf->SetHeaderData($PDF_HEADER_LOGO, $PDF_HEADER_LOGO_WIDTH, $PDF_HEADER_TITLE, $PDF_HEADER_STRING);
         $pdf->setPrintFooter(false);
         $pdf->setPrintHeader(false);
         $pdf->SetAuthor('Author');
@@ -59,7 +67,10 @@ class Admin extends CI_Controller
         $content = '';
 
         $content .= '
-            <h3>Evaluation Result Summary</h3>
+            <h1 style="text-align: center; line-height: 6px; font-size: 30px">Tibag High School</h1>
+            <p style="text-align: center; line-height: 5px">Tibag, Tarlac City, Tarlac</p>
+            <hr />
+            <h3 style="text-align: center; line-height: 5px">Evaluation Result Summary</h3>
             <table border="1" cellpadding="5" cellspacing="0">
                 <tr>
                     <th>

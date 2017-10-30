@@ -19,10 +19,10 @@
             <div class="header pt-3">
 
                 <div class="row d-flex justify-content-center">
-                    <h3 class="black-text mb-3 pt-3 font-bold">Schedule</h3>
+                    <h3 class="black-text pt-3 font-bold">Schedule</h3>
                 </div>
             </div>
-            <div class="card-body mx-4 mt-4">
+            <div class="card-body mx-4">
                 <form method="post" action="<?php base_url()?>insert_schedule">
                     <h4 class="grey-text">Time</h4>
                     <div class="mb-2 form-inline row">

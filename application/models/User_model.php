@@ -12,7 +12,7 @@ class User_model extends CI_Model{
     public function signin() {
         $username = $this->input->post('username');
         $pass = $this->input->post('pass');
-        $sql = "SELECT * FROM `user` WHERE `username`=?";
+        $sql = "SELECT * FROM `user` WHERE `id_number`=?";
         $query = $this->db->query($sql, array($username));
         if($query->num_rows() > 0) {
             $row = $query->row();
@@ -45,7 +45,7 @@ class User_model extends CI_Model{
             $this->session->set_userdata('userType', $type);
             $this->session->set_userdata('user_section', $section);
         } else {
-            $this->session->set_flashdata('register_err', 'Username already exists');
+            $this->session->set_flashdata('register_err', 'ID number already exists');
         }
         return $res;
     }

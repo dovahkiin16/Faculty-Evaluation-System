@@ -41,7 +41,7 @@
                             <div class="form-group col-6 my-auto">
                                 <input type="checkbox" name="userId[]" id="check<?=$user->id?>" class="filled-in ml-3" value="<?=$user->id?>">
                                 <label for="check<?=$user->id?>">
-                                    <?=$user->lname?>, <?=$user->fname?>
+                                    <?=$user->lname?>, <?=$user->fname?> <span class="grey-text">[<?=$user->type?>]</span>
                                 </label>
                             </div>
                             <div class="inline col-6 d-flex justify-content-end">
