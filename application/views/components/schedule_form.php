@@ -76,7 +76,7 @@
                             <?php if(isset($evaluators) && $evaluators): ?>
                                 <?php foreach($evaluators as $evaluator): ?>
                                     <div class="checkbox form-group bg-even px-2 pt-2">
-                                        <input id="check<?=$evaluator->id?>" type="checkbox" class="filled-in" name="evaluator[]" value="<?=$evaluator->id?>"/>
+                                        <input id="check<?=$evaluator->id?>" type="radio" class="filled-in" name="evaluator[]" value="<?=$evaluator->id?>"/>
                                         <label for="check<?=$evaluator->id?>">
                                             <?=$evaluator->level?>-<?=$evaluator->name ?>
                                         </label>
