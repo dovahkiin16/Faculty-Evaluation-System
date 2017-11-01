@@ -83,7 +83,10 @@ class Schedule_model extends CI_Model
         $stime = $sdate->format("Y-m-d H:i:s");
 
         // check schedule availability
-        $sql = "SELECT * FROM `schedule` WHERE '$stime' BETWEEN `schedule`.`start_time` AND `schedule`.`end_time` AND `schedule`.`exam_room_no`='$room'";
+        $sql = "SELECT * FROM `schedule` 
+                WHERE '$stime' 
+                BETWEEN `schedule`.`start_time` AND `schedule`.`end_time` 
+                AND `schedule`.`exam_room_no`='$room'";
         if(!($this->db->query("$sql"))->num_rows() == 0) {
             $this->session->set_flashdata('sched_err', 'Schedule is occupied');
             $this->session->set_flashdata('sched_year', $year);

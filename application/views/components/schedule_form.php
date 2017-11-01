@@ -89,8 +89,8 @@
                             <?php if(isset($evaluatees) && $evaluatees): ?>
                                 <?php foreach($evaluatees as $evaluatee): ?>
                                     <div class="checkbox form-group bg-odd px-2 pt-2">
-                                        <input id="check<?=$evaluatee->id?>" type="checkbox" name="evaluatee[]" class="filled-in" value="<?=$evaluatee->id?>"/>
-                                        <label for="check<?=$evaluatee->id?>">
+                                        <input id="checkev<?=$evaluatee->id?>" type="checkbox" name="evaluatee[]" class="filled-in" value="<?=$evaluatee->id?>"/>
+                                        <label for="checkev<?=$evaluatee->id?>">
                                             <?=$evaluatee->lname?>, <?=$evaluatee->fname ?>
                                         </label>
                                     </div>

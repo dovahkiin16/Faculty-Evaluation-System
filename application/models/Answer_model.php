@@ -76,7 +76,7 @@ class Answer_model extends CI_Model
         }
         // Evaluator Count
         $sql = "SELECT count(user_id) AS count
-                FROM (SELECT * FROM `answer` GROUP BY user_id) T";
+                FROM (SELECT * FROM `answer` WHERE `answer`.`teacher_id`='$user' GROUP BY user_id) T";
         $res = $this->db->query($sql);
         if($res->num_rows() > 0 ) {
             $row = $res->row();
