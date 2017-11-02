@@ -44,6 +44,19 @@ class Schedule_model extends CI_Model
         return false;
     }
 
+    public function get_schedules() {
+        $query = $this->db->query("SELECT `schedule`.`exam_room_no`, `schedule`.`start_time`, `section`.`name` AS sname, `section`.`level` AS slevel, `user`.`fname` AS fname, `user`.`lname` AS lname
+                              FROM `schedule` 
+                              INNER JOIN `section` ON `schedule`.`section_id`=`section`.`id`
+                              INNER JOIN `user` ON `schedule`.`teacher_id`=`user`.`id`");
+        $result = array();
+        foreach ($query->result_array() as $row) {
+            $name = $row['slevel']."-".$row['sname'];
+            $result[$name] = $row;
+        }
+        return $result;
+    }
+
     public function insert_schedule() {
         // check if evaluator or evaluatee is empty
         if(!$this->input->post('evaluator')) {

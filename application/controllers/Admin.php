@@ -132,8 +132,10 @@ class Admin extends CI_Controller
         $this->redir_if_loggedIn();
         $this->load->model('user_model');
         $this->load->model('section_model');
+        $this->load->model('schedule_model');
         $data['evaluators'] = $this->section_model->fetch_evaluator();
         $data['evaluatees'] = $this->user_model->fetch_evaluatee();
+        $data['sched_list'] = $this->schedule_model->get_schedules();
         $data['sched_err'] = $this->session->flashdata('sched_err');
         $form = array();
         if(isset($data['sched_err']) && $data['sched_err']) {
@@ -152,7 +154,8 @@ class Admin extends CI_Controller
         $data['result'] = $this->session->flashdata('result');
         $this->load->view('/templates/header');
         $this->load->view('/templates/navbar');
-        $this->load->view('components/schedule_form', $data);
+        $this->load->view('/components/schedule_form', $data);
+        $this->load->view('/components/schedule_list', $data);
         $this->load->view('/templates/footer');
     }
 
