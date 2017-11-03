@@ -21,7 +21,7 @@
                     <div class="md-form">
                         <i class="fa fa-envelope prefix grey-text"></i>
                         <input type="number" id="username" name="username" class="form-control" required />
-                        <label for="username">ID Number</label>
+                        <label for="username">LRN/Employee number</label>
                     </div>
                     <div class="md-form">
                         <i class="fa fa-lock prefix grey-text"></i>
@@ -33,7 +33,7 @@
                         <!--Grid column-->
                         <div class="col-md-1 col-md-5 d-flex align-items-start">
                             <div class="text-center">
-                                <button type="submit" class="btn btn-grey btn-rounded z-depth-1a">Log in</button>
+                                <button type="submit" class="btn btn-success btn-rounded z-depth-1a">Log in</button>
                             </div>
                         </div>
                         <!--Grid column-->
