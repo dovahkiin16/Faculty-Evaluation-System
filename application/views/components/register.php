@@ -8,7 +8,7 @@
         <!--Form without header-->
         <div class="card">
             <div class="card-body mx-4">
-                <form action="<?php echo base_url()?>register" method="post">
+                <form action="<?php echo base_url()?>register" method="post" id="formsignup">
                     <!--Header-->
                     <div class="text-center">
                         <h3 class="pink-text mb-5"><strong>Sign up</strong></h3>
@@ -51,9 +51,13 @@
                                 <label for="username">LRN/Employee Number</label>
                             </div>
 
-                            <div class="md-form pb-3">
+                            <div class="md-form">
                                 <input type="password" id="pwd" name="password" class="form-control" required>
                                 <label for="pwd">Password</label>
+                            </div>
+                            <div class="md-form pb-3">
+                                <input type="password" id="conf-pwd" class="form-control" required>
+                                <label for="pwd">Confirm Password</label>
                             </div>
                         </div>
                     </div>
@@ -71,6 +75,5 @@
                 </form>
             </div>
         </div>
-
     </section>
 </div>
