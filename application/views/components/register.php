@@ -1,10 +1,10 @@
 <div class="container">
     <?php if(isset($err)): ?>
-    <div class="alert alert-danger mt-5">
+    <div class="alert alert-danger mt-3">
         <strong>Error!</strong> <?=$err?>
     </div>
     <?php endif; ?>
-    <section class="form-light mt-5 mb-1">
+    <section class="form-light mt-3 mb-1">
         <!--Form without header-->
         <div class="card">
             <div class="card-body mx-4">
@@ -14,42 +14,48 @@
                         <h3 class="pink-text mb-5"><strong>Sign up</strong></h3>
                     </div>
 
-                    <div>
-                        <label>Account type</label>
-                        <select class="mdb-select" name="user_type" required>
-                            <option value="" disabled selected>Account Type</option>
-                            <option value="student">Student</option>
-                            <option value="teacher">Teacher</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label>Section</label>
-                        <select class="mdb-select" name="section" required>
-                            <option value="" disabled selected>Section</option>
-                            <?php if(isset($sections) && $sections): ?>
-                                <?php foreach($sections as $section): ?>
-                                    <option value="<?=$section->id?>"><?=$section->level?>-<?=$section->name?></option>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </select>
-                    </div>
-                    <div class="md-form">
-                        <input type="text" id="fname" name="fname" class="form-control" required>
-                        <label for="fname">First Name</label>
-                    </div>
-                    <div class="md-form">
-                        <input type="text" id="lname" name="lname" class="form-control" required>
-                        <label for="lname">Last Name</label>
-                    </div>
-                    <!--Body-->
-                    <div class="md-form">
-                        <input type="number" id="username" name="username" class="form-control" required>
-                        <label for="username">ID Number</label>
-                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div>
+                                <label>Account type</label>
+                                <select class="mdb-select" name="user_type" required>
+                                    <option value="" disabled selected>Account Type</option>
+                                    <option value="student">Student</option>
+                                    <option value="teacher">Teacher</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Section</label>
+                                <select class="mdb-select" name="section" required>
+                                    <option value="" disabled selected>Section</option>
+                                    <?php if(isset($sections) && $sections): ?>
+                                        <?php foreach($sections as $section): ?>
+                                            <option value="<?=$section->id?>"><?=$section->level?>-<?=$section->name?></option>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="md-form">
+                                <input type="text" id="fname" name="fname" class="form-control" required>
+                                <label for="fname">First Name</label>
+                            </div>
+                            <div class="md-form">
+                                <input type="text" id="lname" name="lname" class="form-control" required>
+                                <label for="lname">Last Name</label>
+                            </div>
+                            <!--Body-->
+                            <div class="md-form">
+                                <input type="number" id="username" name="username" class="form-control" required>
+                                <label for="username">LRN/Employee Number</label>
+                            </div>
 
-                    <div class="md-form pb-3">
-                        <input type="password" id="pwd" name="password" class="form-control" required>
-                        <label for="pwd">Password</label>
+                            <div class="md-form pb-3">
+                                <input type="password" id="pwd" name="password" class="form-control" required>
+                                <label for="pwd">Password</label>
+                            </div>
+                        </div>
                     </div>
 
                     <!--Grid row-->
