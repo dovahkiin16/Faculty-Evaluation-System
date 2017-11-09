@@ -33,53 +33,72 @@
                             </p>
                             <table class="table table-striped table-bordered">
                                 <tbody>
+                                <tr>
+                                    <th>
+                                        Question
+                                    </th>
+                                    <th>
+                                        Outstanding
+                                    </th>
+                                    <th>
+                                        Very Satisfactory
+                                    </th>
+                                    <th>
+                                        Satisfactory
+                                    </th>
+                                    <th>
+                                        Unsatisfactory
+                                    </th>
+                                    <th>
+                                        Strongly Disagree
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                    </th>
+                                    <th>
+                                        (5)
+                                    </th>
+                                    <th>
+                                        (4)
+                                    </th>
+                                    <th>
+                                        (3)
+                                    </th>
+                                    <th>
+                                        (2)
+                                    </th>
+                                    <th>
+                                        (1)
+                                    </th>
+                                </tr>
+                                <?php foreach($ec as $q): ?>
                                     <tr>
-                                        <th>
-                                            Question
-                                        </th>
-                                        <th>
-                                            Outstanding (5)
-                                        </th>
-                                        <th>
-                                            Very Satisfactory (4)
-                                        </th>
-                                        <th>
-                                            Satisfactory (3)
-                                        </th>
-                                        <th>
-                                            Unsatisfactory (2)
-                                        </th>
-                                        <th>
-                                            Strongly Disagree (1)
-                                        </th>
+                                        <td>
+                                            <?=$q->question?>
+                                        </td>
+                                        <td class="text-center">
+                                            <input type="radio" name="q-<?=$q->id?>" id="q-<?=$q->id?>-5" value="5" required/>
+                                            <label for="q-<?=$q->id?>-5"></label>
+                                        </td>
+                                        <td class="text-center">
+                                            <input type="radio" name="q-<?=$q->id?>" id="q-<?=$q->id?>-4" value="4" />
+                                            <label for="q-<?=$q->id?>-4"></label>
+                                        </td>
+                                        <td class="text-center">
+                                            <input type="radio" name="q-<?=$q->id?>" id="q-<?=$q->id?>-3" value="3" />
+                                            <label for="q-<?=$q->id?>-3"></label>
+                                        </td>
+                                        <td class="text-center">
+                                            <input type="radio" name="q-<?=$q->id?>" id="q-<?=$q->id?>-2" value="2" />
+                                            <label for="q-<?=$q->id?>-2"></label>
+                                        </td>
+                                        <td class="text-center">
+                                            <input type="radio" name="q-<?=$q->id?>" id="q-<?=$q->id?>-1" value="1" />
+                                            <label for="q-<?=$q->id?>-1"></label>
+                                        </td>
                                     </tr>
-                                    <?php foreach($ec as $q): ?>
-                                        <tr>
-                                            <td>
-                                                <?=$q->question?>
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="radio" name="q-<?=$q->id?>" id="q-<?=$q->id?>-5" value="5" required/>
-                                                <label for="q-<?=$q->id?>-5"></label>
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="radio" name="q-<?=$q->id?>" id="q-<?=$q->id?>-4" value="4" />
-                                                <label for="q-<?=$q->id?>-4"></label>
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="radio" name="q-<?=$q->id?>" id="q-<?=$q->id?>-3" value="3" />
-                                                <label for="q-<?=$q->id?>-3"></label>
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="radio" name="q-<?=$q->id?>" id="q-<?=$q->id?>-2" value="2" />
-                                                <label for="q-<?=$q->id?>-2"></label>
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="radio" name="q-<?=$q->id?>" id="q-<?=$q->id?>-1" value="1" />
-                                                <label for="q-<?=$q->id?>-1"></label>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
+                                <?php endforeach; ?>
                                 </tbody>
                             </table>
                             <hr />
@@ -92,22 +111,41 @@
                                 <tbody>
                                 <tr>
                                     <th>
-                                        Strongly Agree
+                                        Question
                                     </th>
                                     <th>
-                                        Agree
+                                        Outstanding
                                     </th>
                                     <th>
-                                        Undecided
+                                        Very Satisfactory
                                     </th>
                                     <th>
-                                        Disagree
+                                        Satisfactory
+                                    </th>
+                                    <th>
+                                        Unsatisfactory
                                     </th>
                                     <th>
                                         Strongly Disagree
                                     </th>
+                                </tr>
+                                <tr>
                                     <th>
-                                        Question
+                                    </th>
+                                    <th>
+                                        (5)
+                                    </th>
+                                    <th>
+                                        (4)
+                                    </th>
+                                    <th>
+                                        (3)
+                                    </th>
+                                    <th>
+                                        (2)
+                                    </th>
+                                    <th>
+                                        (1)
                                     </th>
                                 </tr>
                                 <?php foreach($ic as $q): ?>
