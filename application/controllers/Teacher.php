@@ -34,9 +34,11 @@ class Teacher extends CI_Controller
     }
 
     public function dashboard() {
+        $this->load->model('user_model');
+        $data['list'] = $this->user_model->fetch_teachers();
         $this->load->view('/templates/header');
         $this->load->view('/templates/navbar');
-        $this->load->view('/components/teacher_list');
+        $this->load->view('/components/teacher_list', $data);
         $this->load->view('/templates/footer');
     }
 

@@ -79,7 +79,6 @@ class User_model extends CI_Model{
         }
     }
 
-
     public function fetch_user($id=NULL, $conf = false) {
         $sql = '';
 
@@ -109,5 +108,10 @@ class User_model extends CI_Model{
         } else {
             return false;
         }
+    }
+
+    public function fetch_teachers() {
+        $query = $this->db->query("SELECT * FROM user WHERE type='teacher'");
+        return $query->result_array();
     }
  }
