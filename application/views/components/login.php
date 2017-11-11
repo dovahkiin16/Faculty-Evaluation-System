@@ -1,10 +1,20 @@
 <div class="container">
     <div class="row login-row form-gradient">
         <!-- Padding -->
-        <div class="col-md-3"></div>
-
+        <div class="col-md-3">
+            <h3 class="text-center">Vision</h3>
+            <p class="text-justify">
+                We dream of Filipino who passionately love their country and whose competencies and values enable them
+                to realize their full potential and contribute meaningfully to building the nation.
+            </p>
+            <p class="text-justify">
+                As learner-centered public institution, Tibag High School continuously improve itself to better serve
+                its stakeholders.
+            </p>
+        </div>
+        <div class="col-md-1"></div>
         <!-- Login component -->
-        <div class="col-md-6 card p-md-0">
+        <div class="col-md-4 card p-md-0">
             <div class="header pt-3 peach-gradient">
 
                 <div class="row d-flex justify-content-center">
@@ -40,13 +50,35 @@
 
                         <!--Grid column-->
                         <div class="col-md-7">
-                            <p class="font-small grey-text d-flex justify-content-end mt-3">Don't have an account? <a href="<?php echo base_url(); ?>signup" class="dark-grey-text ml-1 font-bold"> Sign up</a></p>
+                            <p class="font-small grey-text d-flex justify-content-end mt-3">Don't have an account?
+                                <a href="<?php echo base_url(); ?>signup" class="dark-grey-text ml-1 font-bold"> Sign up</a>
+                            </p>
                         </div>
                         <!--Grid column-->
                     </div>
                 </form>
 
             </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+            <h3 class="text-center">Mission</h3>
+            <p class="text-justify">
+                To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete
+                basic education where:
+            </p>
+            <ul>
+                <li class="text-justify"><i class="fa fa-arrow-right"></i> Pupils learn in a child-friendly, gender-sensitive, safe, and motivating environment.</li>
+                <li class="text-justify"><i class="fa fa-arrow-right"></i> Teacher facilitate learning and constantly nurture every learner.</li>
+                <li class="text-justify"><i class="fa fa-arrow-right"></i>
+                    Administrators and staff, as stewards of the institution, ensure an enabling and supportive
+                    environment for effective learning to happen.
+                </li>
+                <li class="text-justify"><i class="fa fa-arrow-right"></i>
+                    Family, community, and other stakeholders are actively engaged and share responsibility
+                    for developing life-long learners.
+                </li>
+            </ul>
         </div>
     </div>
 </div>

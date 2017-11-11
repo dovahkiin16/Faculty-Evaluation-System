@@ -62,17 +62,23 @@ $route['signin'] = 'login/signin';
 $route['dashboard'] = 'admin';
 $route['user/confirm'] = 'admin/confirm';
 $route['schedule'] = 'admin/schedule';
+$route['schedule/add'] = 'admin/create_schedule';
+$route['schedule/view'] = 'admin/view_schedule';
 $route['insert_schedule'] = 'admin/insert_schedule';
 $route['sections'] = 'admin/section';
 $route['add_section'] = 'admin/add_section';
+$route['section/add'] = 'admin/create_section';
+$route['section/view'] = 'admin/view_section';
 $route['print'] = 'admin/results';
 
 // student routes
 $route['evaluate'] = 'student';
+$route['dashboard/student'] = 'student/dashboard';
 $route['submit_eval'] = 'student/submit';
 
 // teacher route
 $route['result'] = 'teacher';
+$route['dashboard/teacher'] = 'teacher/dashboard';
 
 // options
 $route['404_override'] = '';

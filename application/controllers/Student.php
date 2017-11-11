@@ -52,6 +52,12 @@ class Student extends CI_Controller
         redirect('/evaluate', 'location');
     }
 
+    public function dashboard() {
+        $this->load->view('/templates/header');
+        $this->load->view('/templates/navbar');
+        $this->load->view('/templates/footer');
+    }
+
     private function redir_if_loggedIn() {
         if($this->session->has_userdata('userType')) {
             if($this->session->userdata('userType') == "admin") {

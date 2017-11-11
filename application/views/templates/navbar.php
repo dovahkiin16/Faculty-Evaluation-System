@@ -12,20 +12,44 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <?php if($_SESSION['userType'] == 'admin'): ?>
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link waves-effect waves-light" href="<?=base_url()?>dashboard">
-                                Verify Accounts
+                        <li class="nav-item dropdown">
+                            <a class="nav-link waves-effect waves-light dropdown-toggle"
+                                id="accounts-dropdown"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false">
+                                Accounts
                             </a>
+                            <div class="dropdown-menu dropdown-primary" aria-labelledby="accounts-dropdown">
+                                <a class="dropdown-item" href="<?=base_url();?>dashboard/teacher">Teacher</a>
+                                <a class="dropdown-item" href="<?=base_url();?>dashboard/student">Student</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link waves-effect waves-light" href="<?=base_url()?>schedule">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link waves-effect waves-light dropdown-toggle"
+                               id="sched-dropdown"
+                               data-toggle="dropdown"
+                               aria-haspopup="true"
+                               aria-expanded="false">
                                 Schedules
                             </a>
+                            <div class="dropdown-menu dropdown-primary" aria-labelledby="sched-dropdown">
+                                <a class="dropdown-item" href="<?=base_url();?>schedule/add">Create Schedule</a>
+                                <a class="dropdown-item" href="<?=base_url();?>schedule/view">View Schedule</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link waves-effect waves-light" href="<?=base_url()?>sections">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link waves-effect waves-light dropdown-toggle"
+                               id="sec-dropdown"
+                               data-toggle="dropdown"
+                               aria-haspopup="true"
+                               aria-expanded="false">
                                 Sections
                             </a>
+                            <div class="dropdown-menu dropdown-primary" aria-labelledby="sec-dropdown">
+                                <a class="dropdown-item" href="<?=base_url();?>section/add">Create Section</a>
+                                <a class="dropdown-item" href="<?=base_url();?>section/view">View Sections</a>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link waves-effect waves-light" href="<?=base_url()?>print">

@@ -33,6 +33,13 @@ class Teacher extends CI_Controller
         $this->load->view('/templates/footer');
     }
 
+    public function dashboard() {
+        $this->load->view('/templates/header');
+        $this->load->view('/templates/navbar');
+        $this->load->view('/components/teacher_list');
+        $this->load->view('/templates/footer');
+    }
+
     private function redir_if_loggedIn() {
         $this->load->library('session');
         if($this->session->has_userdata('userType')) {
