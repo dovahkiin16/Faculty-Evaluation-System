@@ -20,7 +20,23 @@ class Admin extends CI_Controller
         $this->load->view('/templates/footer');
     }
 
+    public function teacher_dashboard() {
+        $this->load->model('user_model');
+        $data['list'] = $this->user_model->fetch_teachers();
+        $this->load->view('/templates/header');
+        $this->load->view('/templates/navbar');
+        $this->load->view('/components/teacher_list', $data);
+        $this->load->view('/templates/footer');
+    }
+
+    public function student_dashboard() {
+        $this->load->view('/templates/header');
+        $this->load->view('/templates/navbar');
+        $this->load->view('/templates/footer');
+    }
+
     public function results() {
+        $this->redir_if_loggedIn();
         $this->load->model('user_model');
         $this->load->model('answer_model');
         $this->load->model('section_model');

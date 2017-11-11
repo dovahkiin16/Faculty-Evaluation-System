@@ -52,9 +52,7 @@ class User_model extends CI_Model{
 
     public function delete_user($userId) {
         if(!is_array($userId)) {
-            $this->db->where('id', $userId);
-            $this->db->delete('user');
-            return $this->db->get();
+            return $this->db->simple_query("DELETE FROM user WHERE id='$userId'");
         } else {
             $this->db->trans_begin();
             foreach ($userId as $user) {

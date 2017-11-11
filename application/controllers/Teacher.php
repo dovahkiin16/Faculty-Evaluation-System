@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: Eden E Fernandez Jr
- * Date: 17/10/2017
- * Time: 11:31 PM
- */
 class Teacher extends CI_Controller
 {
 
@@ -33,13 +27,15 @@ class Teacher extends CI_Controller
         $this->load->view('/templates/footer');
     }
 
-    public function dashboard() {
+    public function delete_teacher() {
+        $teacher_id = $this->input->post('teacher_id');
         $this->load->model('user_model');
-        $data['list'] = $this->user_model->fetch_teachers();
-        $this->load->view('/templates/header');
-        $this->load->view('/templates/navbar');
-        $this->load->view('/components/teacher_list', $data);
-        $this->load->view('/templates/footer');
+        $res = $this->user_model->delete_user($teacher_id);
+        if($res){
+            echo "success";
+        } else {
+            echo " res:".$res;
+        }
     }
 
     private function redir_if_loggedIn() {

@@ -73,12 +73,13 @@ $route['print'] = 'admin/results';
 
 // student routes
 $route['evaluate'] = 'student';
-$route['dashboard/student'] = 'student/dashboard';
+$route['dashboard/student'] = 'admin/student_dashboard';
 $route['submit_eval'] = 'student/submit';
 
 // teacher route
 $route['result'] = 'teacher';
-$route['dashboard/teacher'] = 'teacher/dashboard';
+$route['teacher/delete'] = 'teacher/delete_teacher';
+$route['dashboard/teacher'] = 'admin/teacher_dashboard';
 
 // options
 $route['404_override'] = '';

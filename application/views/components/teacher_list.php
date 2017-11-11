@@ -19,12 +19,15 @@
                             <th>
                                 Employee Number
                             </th>
+                            <th>
+                                Action
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php if(isset($list) && $list): ?>
                             <?php foreach($list as $teacher): ?>
-                                <tr>
+                                <tr id="teacher-<?=$teacher['id']?>">
                                     <td>
                                         <?=$teacher['lname']?>, <?=$teacher['fname']?>
                                     </td>
@@ -32,7 +35,7 @@
                                         <?=$teacher['id_number']?>
                                     </td>
                                     <td>
-                                        <button class="btn btn-danger">
+                                        <button class="btn btn-danger teacher-delete" value="<?=$teacher['id']?>">
                                             DELETE
                                         </button>
                                     </td>

@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: Eden E Fernandez Jr
- * Date: 17/10/2017
- * Time: 11:30 PM
- */
 class Student extends CI_Controller
 {
 
@@ -50,12 +44,6 @@ class Student extends CI_Controller
         }
 
         redirect('/evaluate', 'location');
-    }
-
-    public function dashboard() {
-        $this->load->view('/templates/header');
-        $this->load->view('/templates/navbar');
-        $this->load->view('/templates/footer');
     }
 
     private function redir_if_loggedIn() {

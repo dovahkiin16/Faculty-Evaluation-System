@@ -9,5 +9,15 @@ $(document).ready(function() {
             toastr.error("Password do not match");
         }
     });
+    $(".teacher-delete").click(function(event){
+        $.post('/thesis/teacher/delete',{teacher_id: $(event.target).val()}, function(data) {
+            if(data === "success") {
+                console.log(data);
+                $("#teacher-" + $(event.target).val()).hide(500);
+            } else {
+                console.log(data);
+            }
+        });
+    });
 });
 
