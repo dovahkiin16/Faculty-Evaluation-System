@@ -34,8 +34,8 @@
                                 Schedules
                             </a>
                             <div class="dropdown-menu dropdown-primary" aria-labelledby="sched-dropdown">
-                                <a class="dropdown-item" href="<?=base_url();?>schedule/add">Create Schedule</a>
-                                <a class="dropdown-item" href="<?=base_url();?>schedule/view">View Schedule</a>
+                                <a class="dropdown-item" href="<?=base_url("schedule/add");?>">Create Schedule</a>
+                                <a class="dropdown-item" href="<?=base_url("schedule/view");?>">View Schedule</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -47,12 +47,12 @@
                                 Sections
                             </a>
                             <div class="dropdown-menu dropdown-primary" aria-labelledby="sec-dropdown">
-                                <a class="dropdown-item" href="<?=base_url();?>section/add">Create Section</a>
-                                <a class="dropdown-item" href="<?=base_url();?>section/view">View Sections</a>
+                                <a class="dropdown-item" href="<?=base_url('section/add');?>">Create Section</a>
+                                <a class="dropdown-item" href="<?=base_url('section/view');?>">View Sections</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link waves-effect waves-light" href="<?=base_url()?>print">
+                            <a class="nav-link waves-effect waves-light" href="<?=base_url(print)?>">
                                 Results
                             </a>
                         </li>
@@ -66,7 +66,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link waves-effect waves-light" href="<?php base_url();?>logout">
+                        <a class="nav-link waves-effect waves-light" href="<?=base_url('logout');?>">
                             <i class="fa fa-sign-out"></i>
                             Logout
                         </a>
