@@ -52,7 +52,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link waves-effect waves-light" href="<?=base_url(print)?>">
+                            <a class="nav-link waves-effect waves-light" href="<?=base_url("print")?>">
                                 Results
                             </a>
                         </li>
