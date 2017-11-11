@@ -12,9 +12,8 @@
                 its stakeholders.
             </p>
         </div>
-        <div class="col-md-1"></div>
         <!-- Login component -->
-        <div class="col-md-4 card p-md-0">
+        <div class="col-md-6 card p-md-0">
             <div class="header pt-3 peach-gradient">
 
                 <div class="row d-flex justify-content-center">
@@ -60,7 +59,6 @@
 
             </div>
         </div>
-        <div class="col-md-1"></div>
         <div class="col-md-3">
             <h3 class="text-center">Mission</h3>
             <p class="text-justify">
