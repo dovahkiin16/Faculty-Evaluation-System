@@ -109,7 +109,16 @@ class User_model extends CI_Model{
     }
 
     public function fetch_teachers() {
-        $query = $this->db->query("SELECT * FROM user WHERE type='teacher'");
+        $query = $this->db->query("SELECT * FROM user WHERE type='teacher' && confirmed='1'");
+        return $query->result_array();
+    }
+
+    public function fetch_students() {
+        $query = $this->db->query("SELECT `user`.*, section.level, section.name
+                                        FROM user 
+                                        INNER JOIN section on section_id=`section`.`id`
+                                        WHERE type='student' && confirmed='1'
+                                        ORDER BY `level` ASC, `name` ASC, `lname` ASC, `fname` ASC");
         return $query->result_array();
     }
  }

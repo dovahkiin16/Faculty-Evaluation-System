@@ -30,8 +30,11 @@ class Admin extends CI_Controller
     }
 
     public function student_dashboard() {
+        $this->load->model('user_model');
+        $data['list'] = $this->user_model->fetch_students();
         $this->load->view('/templates/header');
         $this->load->view('/templates/navbar');
+        $this->load->view('/components/student_list', $data);
         $this->load->view('/templates/footer');
     }
 
