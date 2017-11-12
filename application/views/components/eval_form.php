@@ -150,6 +150,9 @@
                                 </tr>
                                 <?php foreach($ic as $q): ?>
                                     <tr id="<?=$q->id?>">
+                                        <td>
+                                            <?=$q->question?>
+                                        </td>
                                         <td class="text-center">
                                             <input type="radio" name="q-<?=$q->id?>" id="q-<?=$q->id?>-5" value="5" required/>
                                             <label for="q-<?=$q->id?>-5"></label>
@@ -169,9 +172,6 @@
                                         <td class="text-center">
                                             <input type="radio" name="q-<?=$q->id?>" id="q-<?=$q->id?>-1" value="1" />
                                             <label for="q-<?=$q->id?>-1"></label>
-                                        </td>
-                                        <td>
-                                            <?=$q->question?>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
