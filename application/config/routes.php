@@ -59,7 +59,7 @@ $route['logout'] = 'login/logout';
 $route['signin'] = 'login/signin';
 
 // admin routes
-$route['dashboard'] = 'admin';
+$route['dashboard'] = 'admin/create_schedule';
 $route['user/confirm'] = 'admin/confirm';
 $route['schedule'] = 'admin/schedule';
 $route['schedule/add'] = 'admin/create_schedule';
