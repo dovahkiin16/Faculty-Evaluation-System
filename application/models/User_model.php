@@ -35,6 +35,10 @@ class User_model extends CI_Model{
         $username = $this->input->post('username');
         $pwd = $this->input->post('password');
         $section = $this->input->post('section');
+        if($section == -1 && $type == "student") {
+            $this->session->set_flashdata('register_err', 'Students must put their section.');
+            return false;
+        }
         $pass = password_hash($pwd, PASSWORD_BCRYPT);
         $find_user = "SELECT * FROM `$type` WHERE ".($type=="teacher"?"employee_no":"lrn")."='$username'";
         $users = $this->db->query($find_user);

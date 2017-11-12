@@ -28,6 +28,7 @@
                                 <label>Section</label>
                                 <select class="mdb-select" name="section" required>
                                     <option value="" disabled selected>Section</option>
+                                    <option value="-1">None</option>
                                     <?php if(isset($sections) && $sections): ?>
                                         <?php foreach($sections as $section): ?>
                                             <option value="<?=$section->id?>"><?=$section->level?>-<?=$section->name?></option>
