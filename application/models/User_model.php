@@ -36,7 +36,7 @@ class User_model extends CI_Model{
         $pwd = $this->input->post('password');
         $section = $this->input->post('section');
         $pass = password_hash($pwd, PASSWORD_BCRYPT);
-        $find_user = "SELECT * FROM `$type` WHERE lrn='$username'";
+        $find_user = "SELECT * FROM `$type` WHERE ".($type=="teacher"?"employee_no":"lrn")."='$username'";
         $users = $this->db->query($find_user);
         if($users->num_rows() > 0 ) {
             $sql = "INSERT INTO `user` VALUES(NULL, ?, ?,?, ?, ?, ?, NOW(), 0)";
