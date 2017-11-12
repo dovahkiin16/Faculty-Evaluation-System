@@ -53,8 +53,8 @@ class User_model extends CI_Model{
             return $res;
         } else {
             $this->session->set_flashdata('register_err', 'LRN/Employee number not found');
+            return false;
         }
-        return true;
     }
 
     public function delete_user($userId) {
