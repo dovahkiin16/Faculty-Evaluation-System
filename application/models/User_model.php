@@ -36,18 +36,25 @@ class User_model extends CI_Model{
         $pwd = $this->input->post('password');
         $section = $this->input->post('section');
         $pass = password_hash($pwd, PASSWORD_BCRYPT);
-        $sql = "INSERT INTO `user` VALUES(NULL, ?, ?,?, ?, ?, ?, NOW(), 0)";
-        $res = $this->db->query($sql, array($type, $fname, $lname, $username, $pass, $section));
-        if($res) {
-            $name = $lname . ", " . $fname;
-            $this->session->set_userdata('name', $name);
-            $this->session->set_userdata('userId', $this->db->insert_id());
-            $this->session->set_userdata('userType', $type);
-            $this->session->set_userdata('user_section', $section);
+        $find_user = "SELECT * FROM `$type` WHERE lrn='$username'";
+        $users = $this->db->query($find_user);
+        if($users->num_rows() > 0 ) {
+            $sql = "INSERT INTO `user` VALUES(NULL, ?, ?,?, ?, ?, ?, NOW(), 0)";
+            $res = $this->db->query($sql, array($type, $fname, $lname, $username, $pass, $section));
+            if($res) {
+                $name = $lname . ", " . $fname;
+                $this->session->set_userdata('name', $name);
+                $this->session->set_userdata('userId', $this->db->insert_id());
+                $this->session->set_userdata('userType', $type);
+                $this->session->set_userdata('user_section', $section);
+            } else {
+                $this->session->set_flashdata('register_err', 'ID number already exists');
+            }
+            return $res;
         } else {
-            $this->session->set_flashdata('register_err', 'ID number already exists');
+            $this->session->set_flashdata('register_err', 'LRN/Employee number not found');
         }
-        return $res;
+        return true;
     }
 
     public function delete_user($userId) {
