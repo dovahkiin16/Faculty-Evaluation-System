@@ -43,18 +43,19 @@ class User_model extends CI_Model{
         $find_user = "SELECT * FROM `$type` WHERE ".($type=="teacher"?"employee_no":"lrn")."='$username'";
         $users = $this->db->query($find_user);
         if($users->num_rows() > 0 ) {
-            $sql = "INSERT INTO `user` VALUES(NULL, ?, ?,?, ?, ?, ?, NOW(), 0)";
-            $res = $this->db->query($sql, array($type, $fname, $lname, $username, $pass, $section));
-            if($res) {
+            $sql = "INSERT INTO `user` VALUES(NULL, ?, ?,?, ?, ?, ?, NOW(), 1)";
+            $this->db->query($sql, array($type, $fname, $lname, $username, $pass, $section==-1? null: $section));
+            if($this->db->affected_rows() > 0) {
                 $name = $lname . ", " . $fname;
                 $this->session->set_userdata('name', $name);
                 $this->session->set_userdata('userId', $this->db->insert_id());
                 $this->session->set_userdata('userType', $type);
                 $this->session->set_userdata('user_section', $section);
+                return true;
             } else {
-                $this->session->set_flashdata('register_err', 'ID number already exists');
+                $this->session->set_flashdata('register_err', 'LRN/Employee number already exists');
+                return false;
             }
-            return $res;
         } else {
             $this->session->set_flashdata('register_err', 'LRN/Employee number not found');
             return false;

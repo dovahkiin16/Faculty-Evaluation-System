@@ -17,7 +17,9 @@
             </div>
             <div class="card-body">
                 <h4><?=$teacher->lname?>, <?=$teacher->fname?></h4>
-                <h4><?=$section->level?>-<?=$section->name?></h4>
+                <?php if(isset($section) && $section !=null && !(is_array($section))):?>
+                    <h4><?=$section->level?>-<?=$section->name?></h4>
+                <?php endif;?>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
