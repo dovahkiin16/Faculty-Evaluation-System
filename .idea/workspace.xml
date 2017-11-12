@@ -156,8 +156,8 @@
       <file leaf-file-name="eval_form.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/components/eval_form.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="838">
-              <caret line="154" column="45" lean-forward="false" selection-start-line="154" selection-start-column="45" selection-end-line="154" selection-end-column="45" />
+            <state relative-caret-position="102">
+              <caret line="6" column="10" lean-forward="true" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -567,7 +567,7 @@
       <workItem from="1510389328734" duration="13911000" />
       <workItem from="1510452223143" duration="1143000" />
       <workItem from="1510464253359" duration="2371000" />
-      <workItem from="1510504158573" duration="15790000" />
+      <workItem from="1510504158573" duration="15871000" />
     </task>
     <task id="LOCAL-00001" summary="teacher fixed">
       <created>1510521081219</created>
@@ -597,11 +597,18 @@
       <option name="project" value="LOCAL" />
       <updated>1510525454614</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="unaligned question fixed">
+      <created>1510525999284</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1510525999284</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74620000" />
+    <option name="totallyTimeSpent" value="74701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -637,7 +644,8 @@
     <MESSAGE value="result questions mode" />
     <MESSAGE value="registration limit added" />
     <MESSAGE value="fixed teacher registration" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed teacher registration" />
+    <MESSAGE value="unaligned question fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="unaligned question fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1107,8 +1115,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/components/eval_form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="838">
-          <caret line="154" column="45" lean-forward="false" selection-start-line="154" selection-start-column="45" selection-end-line="154" selection-end-column="45" />
+        <state relative-caret-position="102">
+          <caret line="6" column="10" lean-forward="true" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
           <folding />
         </state>
       </provider>

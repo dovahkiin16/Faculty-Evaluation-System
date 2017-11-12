@@ -4,11 +4,7 @@
             <strong>Success!</strong> <?=$ins_res?>
         </div>
     <?php endif; ?>
-    <?php if(!(isset($confirmed) && $confirmed)): ?>
-        <div class="alert alert-warning mt-3">
-            Account is not confirmed. Please ask the administrator for assistance.
-        </div>
-    <?php elseif(isset($err) && $err): ?>
+    <?php if(isset($err) && $err): ?>
         <div class="alert alert-warning mt-3">
             <?=$err?>
         </div>
