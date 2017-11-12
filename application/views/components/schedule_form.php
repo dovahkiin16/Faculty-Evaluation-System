@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="card-body mx-4">
-                <form method="post" action="<?php base_url()?>insert_schedule">
+                <form method="post" action="<?php echo base_url('insert_schedule');?>">
                     <h4 class="grey-text">Time</h4>
                     <div class="mb-2 form-inline row">
                         <select class="mdb-select col-3" name="day" required>
@@ -79,19 +79,6 @@
                                         <input id="check<?=$evaluator->id?>" type="radio" class="filled-in" name="evaluator[]" value="<?=$evaluator->id?>"/>
                                         <label for="check<?=$evaluator->id?>">
                                             <?=$evaluator->level?>-<?=$evaluator->name ?>
-                                        </label>
-                                    </div>
-                                <?php endforeach ?>
-                            <?php endif; ?>
-                        </div>
-                        <div class="col-6">
-                            <h4 class="grey-text">Evaluatee</h4>
-                            <?php if(isset($evaluatees) && $evaluatees): ?>
-                                <?php foreach($evaluatees as $evaluatee): ?>
-                                    <div class="checkbox form-group bg-odd px-2 pt-2">
-                                        <input id="checkev<?=$evaluatee->id?>" type="checkbox" name="evaluatee[]" class="filled-in" value="<?=$evaluatee->id?>"/>
-                                        <label for="checkev<?=$evaluatee->id?>">
-                                            <?=$evaluatee->lname?>, <?=$evaluatee->fname ?>
                                         </label>
                                     </div>
                                 <?php endforeach ?>

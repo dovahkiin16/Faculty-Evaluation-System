@@ -59,11 +59,8 @@ class Schedule_model extends CI_Model
 
     public function insert_schedule() {
         // check if evaluator or evaluatee is empty
-        if(!$this->input->post('evaluator')) {
+        if(!$this->input->post('evaluator')){
             $this->session->set_flashdata('sched_err', 'Evaluator cannot be empty');
-            return false;
-        } else if(!$this->input->post('evaluatee')){
-            $this->session->set_flashdata('sched_err', 'Evaluatee cannot be empty');
             return false;
         }
 
@@ -111,18 +108,19 @@ class Schedule_model extends CI_Model
 
         // insert data
         $this->db->trans_start();
-        foreach ($evaluatees as $evaluatee):
-            foreach($evaluators as $evaluator):
+        foreach($evaluators as $evaluator):
+            $query = $this->db->query("SELECT * FROM subject_teacher WHERE section_id='$evaluator'");
+            foreach($query->result() as $teacher) {
                 $data = array(
                     'id' => NULL,
                     'start_time' => $sdate->format("Y-m-d H:i:s"),
                     'end_time' => $edate->format("Y-m-d H:i:s"),
                     'exam_room_no' => $room,
                     'section_id' => $evaluator,
-                    'teacher_id' => $evaluatee
+                    'teacher_id' => $teacher->teacher_id
                 );
                 $this->db->insert('schedule', $data);
-            endforeach;
+            }
         endforeach;
         $this->db->trans_complete();
         return $this->db->trans_status();

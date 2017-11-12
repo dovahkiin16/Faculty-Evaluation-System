@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="card-body mx-4 mt-2">
-                <form method="post" action="<?php echo base_url();?>add_section">
+                <form method="post" action="<?php echo base_url('add_section');?>">
                     <div class="md-form">
                         <input type="number" id="level" name="level" class="form-control" min="7" max="12" required>
                         <label for="level">Grade Level</label>
@@ -28,6 +28,20 @@
                     <div class="md-form">
                         <input type="text" id="name" name="name" class="form-control" required>
                         <label for="name">Section Name</label>
+                    </div>
+
+                    <div>
+                        <h4 class="grey-text">Teachers</h4>
+                        <?php if(isset($evaluatees) && $evaluatees): ?>
+                            <?php foreach($evaluatees as $evaluatee): ?>
+                                <div class="checkbox form-group bg-odd px-2 pt-2">
+                                    <input id="checkev<?=$evaluatee->id?>" type="checkbox" name="evaluatee[]" class="filled-in" value="<?=$evaluatee->id?>"/>
+                                    <label for="checkev<?=$evaluatee->id?>">
+                                        <?=$evaluatee->lname?>, <?=$evaluatee->fname ?>
+                                    </label>
+                                </div>
+                            <?php endforeach ?>
+                        <?php endif; ?>
                     </div>
                     <button type="submit" class="btn btn-success">Add</button>
                 </form>

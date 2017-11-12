@@ -214,9 +214,11 @@ class Admin extends CI_Controller
 
     public function create_section() {
         $this->redir_if_loggedIn();
+        $this->load->model('user_model');
         $this->load->model('section_model');
         $res['result'] = $this->session->flashdata('result');
         $res['err'] = $this->session->flashdata('err');
+        $res['evaluatees'] = $this->user_model->fetch_evaluatee();
         $this->load->view('/templates/header');
         $this->load->view('/templates/navbar');
         $this->load->view('/components/section_form', $res);
@@ -240,7 +242,7 @@ class Admin extends CI_Controller
         } else {
             $this->session->set_flashdata('err', 'Error: Internal Server Error Occurred');
         }
-        redirect('/sections', 'location');
+        redirect('/section/add', 'location');
     }
 
     public function confirm() {

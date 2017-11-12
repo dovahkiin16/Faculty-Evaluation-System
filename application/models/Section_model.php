@@ -62,8 +62,15 @@ class Section_model extends CI_Model
     public function add_section() {
         $level = $this->input->post('level');
         $name = $this->input->post('name');
+        $teachers = $this->input->post('evaluatee');
+        $this->db->trans_start();
         $sql = "INSERT INTO `section` VALUES(NULL, ?, ?, NOW())";
-        $res = $this->db->query($sql, array($level, $name));
-        return $res;
+        $this->db->query($sql, array($level, $name));
+        $id = $this->db->insert_id();
+        foreach($teachers as $teacher) {
+            $this->db->query("INSERT INTO `subject_teacher` VALUES(null, '$teacher', '$id')");
+        }
+        $this->db->trans_complete();
+        return $this->db->trans_status();
     }
 }
