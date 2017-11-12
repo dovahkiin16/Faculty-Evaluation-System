@@ -62,6 +62,16 @@
                                 <?=isset($eval_count) ? $eval_count : 'None' ?>
                             </td>
                         </tr>
+                        <?php foreach($quest_res as $key => $res):?>
+                            <tr>
+                                <th>
+                                    Question #<?=$key+1?>
+                                </th>
+                                <td>
+                                    <?=$res?>
+                                </td>
+                            </tr>
+                        <?php endforeach;?>
                     </tbody>
                 </table>
                 <canvas id="myChart" width="600" height="400"></canvas>

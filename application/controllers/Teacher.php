@@ -21,6 +21,11 @@ class Teacher extends CI_Controller
         $data = $this->answer_model->get_res($this->session->userdata('userId'));
         $data['teacher'] = $this->user_model->fetch_user($this->session->userdata('userId'));
         $data['section'] = $this->section_model->fetch_section($data['teacher']->section_id);
+        $questions = array();
+        for($i = 1; $i <= 30; $i++) {
+            array_push($questions, $this->answer_model->get_quest_res($this->session->userdata('userId'), $i));
+        }
+        $data['quest_res'] = $questions;
         $this->load->view('/templates/header');
         $this->load->view('/templates/navbar');
         $this->load->view('/components/eval_result', $data);

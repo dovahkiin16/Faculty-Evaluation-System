@@ -9,6 +9,27 @@ class Answer_model extends CI_Model
         $this->load->library('session');
     }
 
+    public function get_quest_res($user, $ques_id) {
+        $res= $this->db->query("SELECT * FROM `answer` WHERE `answer`.`teacher_id`='$user' AND `question_id`='$ques_id'");
+
+        if($res->num_rows() > 0 ) {
+            $row = $res->row();
+            if($row->answer == 5) {
+                return 'Outstanding';
+            } else if ($row->answer == 4) {
+                return 'Very Satisfactory';
+            } else if ($row->answer == 3) {
+                return 'Satisfactory';
+            } else if ($row->answer == 2) {
+                return 'Unsatisfactory';
+            } else {
+                return 'Poor';
+            }
+        } else {
+            return 'None';
+        }
+    }
+
     public function get_res($user) {
         $ret = array();
         // scores
