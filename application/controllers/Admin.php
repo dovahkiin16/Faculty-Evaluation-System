@@ -147,37 +147,6 @@ class Admin extends CI_Controller
         $pdf->Output('result.pdf', 'I');
     }
 
-    public function schedule() {
-        $this->redir_if_loggedIn();
-        $this->load->model('user_model');
-        $this->load->model('section_model');
-        $this->load->model('schedule_model');
-        $data['evaluators'] = $this->section_model->fetch_evaluator();
-        $data['evaluatees'] = $this->user_model->fetch_evaluatee();
-        $data['sched_list'] = $this->schedule_model->get_schedules();
-        $data['sched_err'] = $this->session->flashdata('sched_err');
-        $form = array();
-        if(isset($data['sched_err']) && $data['sched_err']) {
-            $year = $this->session->flashdata('sched_year');
-            $month = $this->session->flashdata('sched_month');
-            $day = $this->session->flashdata('sched_day');
-            $time = $this->session->flashdata('sched_time');
-            $room = $this->session->flashdata('sched_room');
-            $form['year'] =  $year;
-            $form['month'] = $month;
-            $form['day'] =  $day;
-            $form['time'] = $time;
-            $form['room'] = $room;
-        }
-        $data['form'] = $form;
-        $data['result'] = $this->session->flashdata('result');
-        $this->load->view('/templates/header');
-        $this->load->view('/templates/navbar');
-        $this->load->view('/components/schedule_form', $data);
-        $this->load->view('/components/schedule_list', $data);
-        $this->load->view('/templates/footer');
-    }
-
     public function create_schedule() {
         $this->redir_if_loggedIn();
         $this->load->model('user_model');
