@@ -37,7 +37,7 @@ class Teacher extends CI_Controller
         $teacher_id = $this->input->post('teacher_id');
         $this->load->model('user_model');
         $res = $this->user_model->delete_user($teacher_id);
-        if($res == "sucsess"){
+        if($res == "success"){
             echo "success";
         } else {
             echo "last query: ".$teacher_id;
