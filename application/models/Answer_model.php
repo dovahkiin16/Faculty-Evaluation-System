@@ -10,18 +10,18 @@ class Answer_model extends CI_Model
     }
 
     public function get_quest_res($user, $ques_id) {
-        $res= $this->db->query("SELECT `T`.answer, T.count, question.question
-                    FROM ( SELECT `answer`.`answer`, COUNT(*) AS count , `answer`.`question_id`
-                    FROM `answer` 
-                    WHERE `teacher_id`='$user'
-                    GROUP BY `answer`.`answer` 
-                    ORDER BY count DESC) as T
-                    RIGHT JOIN `question` ON T.question_id=`question`.`id`
-                    WHERE question.id='$ques_id'");
+        $res= $this->db->query("SELECT answer, count, question
+                FROM (SELECT `answer`.`answer`, COUNT(*) AS count, question_id
+                FROM `answer` 
+                WHERE `teacher_id`='$user' AND `question_id`='$ques_id'
+                GROUP BY `answer`.`answer` 
+                ORDER BY count DESC) as T
+                RIGHT JOIN `question` ON T.question_id=`question`.`id`
+                WHERE question.id='$ques_id'");
         $question = '';
         if( $res->num_rows() > 0 ) {
             $row = $res->row();
-            if($row->answer == 5) {
+            if($row->answer == 5 || $row->answer == "5") {
                 return array($row->question, 'Outstanding');
             } else if ($row->answer == 4) {
                 return array($row->question, 'Very Satisfactory');

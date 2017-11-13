@@ -16,16 +16,15 @@ class Student extends CI_Controller
         $this->load->model('question_model');
         $this->load->model('schedule_model');
         $this->load->model('user_model');
-        if ($data['confirmed'] = $this->session->userdata('user_confirm')) {
-            if ($res = $this->schedule_model->check_sched($this->session->userdata('userId'))) {
-                // get questions
-                $row = $res->row();
-                $data['teacher'] = $this->user_model->fetch_user($row->teacher_id);
-                $data['ec'] = $this->question_model->get_question('Explicit Curriculum');
-                $data['ic'] = $this->question_model->get_question('Implicit Curriculum');
-            } else {
-                $data['err'] = $this->session->flashdata('err');
-            }
+        $data = array();
+        if ($res = $this->schedule_model->check_sched($this->session->userdata('userId'))) {
+            // get questions
+            $row = $res->row();
+            $data['teacher'] = $this->user_model->fetch_user($row->teacher_id);
+            $data['ec'] = $this->question_model->get_question('Explicit Curriculum');
+            $data['ic'] = $this->question_model->get_question('Implicit Curriculum');
+        } else {
+            $data['err'] = $this->session->flashdata('err');
         }
         $data['ins_res'] = $this->session->flashdata('ins_res');
         $data['ins_err'] = $this->session->flashdata('ins_err');

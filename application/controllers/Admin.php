@@ -142,6 +142,9 @@ class Admin extends CI_Controller
             </tr>
         ";
         }
+//        echo "<pre>";
+//        print_r($items);
+//        echo "</pre>";
         $content .= "</table>";
         $pdf->WriteHTML($content);
         $pdf->Output('result.pdf', 'I');
