@@ -33,13 +33,14 @@ class Teacher extends CI_Controller
     }
 
     public function delete_teacher() {
+        $this->load->database();
         $teacher_id = $this->input->post('teacher_id');
         $this->load->model('user_model');
         $res = $this->user_model->delete_user($teacher_id);
-        if($res){
+        if($res == "sucsess"){
             echo "success";
         } else {
-            echo " res:".$res;
+            echo "last query: ".$teacher_id;
         }
     }
 

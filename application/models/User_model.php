@@ -64,7 +64,11 @@ class User_model extends CI_Model{
 
     public function delete_user($userId) {
         if(!is_array($userId)) {
-            return $this->db->simple_query("DELETE FROM user WHERE id='$userId'");
+            $this->db->simple_query("DELETE FROM `user` WHERE id='$userId'");
+            if($this->db->affected_rows() > 0) {
+                return "success";
+            }
+            return $this->db->error();
         } else {
             $this->db->trans_begin();
             foreach ($userId as $user) {

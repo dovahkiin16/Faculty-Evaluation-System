@@ -67,10 +67,10 @@
                         <?php foreach($quest_res as $key => $res):?>
                             <tr>
                                 <th>
-                                    Question #<?=$key+1?>
+                                    <?=$key+1?>. <?=$res[0]?>
                                 </th>
                                 <td>
-                                    <?=$res?>
+                                    <?=$res[1]?>
                                 </td>
                             </tr>
                         <?php endforeach;?>

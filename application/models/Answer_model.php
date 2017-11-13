@@ -10,23 +10,32 @@ class Answer_model extends CI_Model
     }
 
     public function get_quest_res($user, $ques_id) {
-        $res= $this->db->query("SELECT * FROM `answer` WHERE `answer`.`teacher_id`='$user' AND `question_id`='$ques_id'");
-
-        if($res->num_rows() > 0 ) {
+        $res= $this->db->query("SELECT `T`.answer, T.count, question.question
+                    FROM ( SELECT `answer`.`answer`, COUNT(*) AS count , `answer`.`question_id`
+                    FROM `answer` 
+                    WHERE `teacher_id`='$user'
+                    GROUP BY `answer`.`answer` 
+                    ORDER BY count DESC) as T
+                    RIGHT JOIN `question` ON T.question_id=`question`.`id`
+                    WHERE question.id='$ques_id'");
+        $question = '';
+        if( $res->num_rows() > 0 ) {
             $row = $res->row();
             if($row->answer == 5) {
-                return 'Outstanding';
+                return array($row->question, 'Outstanding');
             } else if ($row->answer == 4) {
-                return 'Very Satisfactory';
+                return array($row->question, 'Very Satisfactory');
             } else if ($row->answer == 3) {
-                return 'Satisfactory';
+                return array($row->question, 'Satisfactory');
             } else if ($row->answer == 2) {
-                return 'Unsatisfactory';
+                return array($row->question, 'Unsatisfactory');
+            } else if ($row->answer == 1){
+                return array($row->question, 'Poor');
             } else {
-                return 'Poor';
+                return array($row->question, 'None');
             }
         } else {
-            return 'None';
+            return array($question, 'None');
         }
     }
 
