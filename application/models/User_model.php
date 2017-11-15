@@ -93,11 +93,11 @@ class User_model extends CI_Model{
         }
     }
 
-    public function fetch_user($id=NULL, $conf = false) {
+    public function fetch_user($id=NULL) {
         $sql = '';
 
         if($id==NULL) {
-            $sql = "SELECT * FROM `user` WHERE `confirmed`='$conf' ORDER BY `user`.`lname` ASC";
+            $sql = "SELECT * FROM `user` ORDER BY `user`.`lname` ASC";
         } else {
             $sql = "SELECT * FROM `user` WHERE `id`='$id' ORDER BY `user`.`lname` ASC";
         }
@@ -109,6 +109,18 @@ class User_model extends CI_Model{
             } else {
                 return $query->row();
             }
+        } else {
+            return false;
+        }
+    }
+
+    public function fetch_teacher() {
+        $sql = "SELECT * FROM `user` 
+                WHERE `user`.type='teacher' 
+                ORDER BY `user`.`lname` ASC";
+        $query = $this->db->query($sql);
+        if($query->num_rows() > 0) {
+            return $query->result();
         } else {
             return false;
         }

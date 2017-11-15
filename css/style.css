@@ -143,3 +143,13 @@ select:disabled {
 select {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+a.navbar-brand.waves-effect.waves-light {
+    overflow: visible !important;
+}
+
+table.floatThead-table {
+    border-top: none;
+    border-bottom: none;
+    background-color: #FFF;
+}

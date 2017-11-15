@@ -64,18 +64,18 @@
                     </div>
                     <h4 class="grey-text">Room</h4>
                     <div class="mb-2 form-inline">
-                        <select class="mdb-select" name="room">
+                        <select class="mdb-select" name="room" required>
                             <option value="" disabled <?php echo isset($form['room'])? "" : "selected" ?>>Room</option>
                             <option value="1" <?php echo isset($form['room']) && $form['room'] == 1? "selected" : ""?>>Room 1</option>
                             <option value="2" <?php echo isset($form['room']) && $form['room'] == 2? "selected" : ""?>>Room 2</option>
                         </select>
                     </div>
-                    <div class="row mb-2">
-                        <div class="col-6">
-                            <h4 class="grey-text">Evaluator</h4>
+                    <div class="mb-2">
+                        <h4 class="grey-text">Evaluator</h4>
+                        <div class="row">
                             <?php if(isset($evaluators) && $evaluators): ?>
                                 <?php foreach($evaluators as $evaluator): ?>
-                                    <div class="checkbox form-group bg-even px-2 pt-2">
+                                    <div class="checkbox form-group bg-even px-2 pt-2 col-4">
                                         <input id="check<?=$evaluator->id?>" type="radio" class="filled-in" name="evaluator[]" value="<?=$evaluator->id?>"/>
                                         <label for="check<?=$evaluator->id?>">
                                             <?=$evaluator->level?>-<?=$evaluator->name ?>

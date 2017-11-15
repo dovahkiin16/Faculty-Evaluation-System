@@ -19,5 +19,11 @@ $(document).ready(function() {
             }
         });
     });
+    $("#eval-tbl.table.table-bordered").floatThead();
+    $("#eval-tbl2").floatThead();
+    $(".sec-list-expander").on("click", function(event) {
+        var id = event.target.value;
+        $("#expand-" + id).toggle(300);
+    });
 });
 

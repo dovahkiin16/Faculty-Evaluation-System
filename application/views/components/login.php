@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row login-row form-gradient">
         <!-- Padding -->
-        <div class="col-md-3">
+        <div class="col-md-3 px-4">
             <h3 class="text-center">Vision</h3>
             <p class="text-justify">
                 We dream of Filipino who passionately love their country and whose competencies and values enable them
@@ -10,6 +10,10 @@
             <p class="text-justify">
                 As learner-centered public institution, Tibag High School continuously improve itself to better serve
                 its stakeholders.
+            </p>
+            <h3 class="text-center mt-3">Core Values</h3>
+            <p class="text-justify">
+                We believe in commitment, opportunity, respect and excellence.
             </p>
         </div>
         <!-- Login component -->
@@ -59,14 +63,14 @@
 
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 px-4">
             <h3 class="text-center">Mission</h3>
             <p class="text-justify">
                 To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete
                 basic education where:
             </p>
             <ul>
-                <li class="text-justify"><i class="fa fa-arrow-right"></i> Pupils learn in a child-friendly, gender-sensitive, safe, and motivating environment.</li>
+                <li class="text-justify"><i class="fa fa-arrow-right"></i> Students learn in a child-friendly, gender-sensitive, safe, and motivating environment.</li>
                 <li class="text-justify"><i class="fa fa-arrow-right"></i> Teacher facilitate learning and constantly nurture every learner.</li>
                 <li class="text-justify"><i class="fa fa-arrow-right"></i>
                     Administrators and staff, as stewards of the institution, ensure an enabling and supportive

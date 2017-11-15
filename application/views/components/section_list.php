@@ -11,16 +11,27 @@
             </div>
             <div class="card-body">
                 <?php if(isset($sections) && $sections): ?>
-                    <?php foreach($sections as $section): ?>
-                        <div class="mb-4">
-                            <h4>Grade <?=$section['level']?>-<?=$section['name']?></h4>
-                            <?php foreach($section['students'] as $student): ?>
-                                <div class="bg-even p-2">
-                                    <?=$student->lname?>, <?=$student->fname?>
-                                </div>
-                            <?php endforeach;?>
-                        </div>
-                    <?php endforeach; ?>
+                    <div class="row">
+                        <?php foreach($sections as $section): ?>
+                            <div class="mb-4 col-6">
+                                <h4>Grade <?=$section['level']?>-<?=$section['name']?></h4>
+                                <?php if(count($section['students']) > 0): ?>
+                                    <button class="btn btn-success sec-list-expander" value="<?=$section['id']?>">Load More</button>
+                                    <div id="expand-<?=$section['id']?>" style="display: none;">
+                                        <?php foreach($section['students'] as $student): ?>
+                                            <div class="bg-even p-2">
+                                                <?=$student->lname?>, <?=$student->fname?>
+                                            </div>
+                                        <?php endforeach;?>
+                                    </div>
+                                <?php else: ?>
+                                    <p>
+                                        This Section has no Students Registered
+                                    </p>
+                                <?php endif;?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
                 <?php endif; ?>
             </div>
         </div>

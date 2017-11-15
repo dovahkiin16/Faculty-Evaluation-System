@@ -11,17 +11,22 @@
             </div>
             <div class="card-body">
                 <?php if(isset($sched_list) && $sched_list): ?>
-                    <?php foreach($sched_list as $sec=>$sched): ?>
-                        <div class="mb-4">
-                            <h4><?=$sec?></h4>
-                            <p>
-                                <b>Room No:</b><span><?=$sched['exam_room_no']?></span>
-                            </p>
-                            <p>
-                                <b>Schedule: </b><span><?php echo date("F jS, Y", strtotime($sched['start_time'])); ?></span>
-                            </p>
-                        </div>
-                    <?php endforeach; ?>
+                    <div class="row">
+                        <?php foreach($sched_list as $sec=>$sched): ?>
+                            <div class="mb-4 col-md-6 col-sm-12">
+                                <h4><?=$sec?></h4>
+                                <p>
+                                    <b>Room No:</b><span><?=$sched['exam_room_no']?></span>
+                                </p>
+                                <p>
+                                    <b>Schedule: </b><span><?php echo date("F jS, Y h:i:m a", strtotime($sched['start_time'])); ?></span>
+                                </p>
+                                <p>
+                                    <b>Until: </b><span><?php echo date("F jS, Y h:i:m a", strtotime($sched['end_time'])); ?></span>
+                                </p>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
                 <?php endif; ?>
             </div>
         </div>

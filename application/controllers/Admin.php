@@ -21,12 +21,57 @@ class Admin extends CI_Controller
     }
 
     public function teacher_dashboard() {
+    $this->load->model('user_model');
+    $this->redir_if_loggedIn();
+    $data['list'] = $this->user_model->fetch_teachers();
+    $this->load->view('/templates/header');
+    $this->load->view('/templates/navbar');
+    $this->load->view('/components/teacher_list', $data);
+    $this->load->view('/templates/footer');
+}
+
+    public function teach_list() {
         $this->load->model('user_model');
+        $this->redir_if_loggedIn();
         $data['list'] = $this->user_model->fetch_teachers();
         $this->load->view('/templates/header');
         $this->load->view('/templates/navbar');
         $this->load->view('/components/teacher_list', $data);
         $this->load->view('/templates/footer');
+    }
+
+    public function teach_res($id) {
+        $this->redir_if_loggedIn();
+
+        $this->load->model('answer_model');
+        $this->load->model('user_model');
+        $this->load->model('section_model');
+        $this->load->helper('url');
+
+        $data = $this->answer_model->get_res($id);
+        $data['teacher'] = $this->user_model->fetch_user($id);
+        $data['section'] = $this->section_model->fetch_section($data['teacher']->section_id);
+        $questions = array();
+        for($i = 1; $i <= 30; $i++) {
+            array_push($questions, $this->answer_model->get_quest_res($id, $i));
+        }
+        $data['quest_res'] = $questions;
+        $this->load->view('/templates/header');
+        $this->load->view('/templates/navbar');
+        $this->load->view('/components/eval_result', $data);
+        $this->load->view('/templates/footer');
+    }
+
+    public function delete_teacher() {
+        $this->load->database();
+        $teacher_id = $this->input->post('teacher_id');
+        $this->load->model('user_model');
+        $res = $this->user_model->delete_user($teacher_id);
+        if($res == "success"){
+            echo "success";
+        } else {
+            echo "last query: ".$teacher_id;
+        }
     }
 
     public function student_dashboard() {
@@ -46,10 +91,13 @@ class Admin extends CI_Controller
         $this->load->library('Pdf');
 
 
-        $teachers = $this->user_model->fetch_user(NULL, true);
+        $teachers = $this->user_model->fetch_teacher();
         $items = array();
         foreach ($teachers as $teacher) {
             $arr = $this->answer_model->get_res($teacher->id);
+            if(! $arr){
+                continue;
+            }
             $arr2 = $this->section_model->fetch_section($teacher->section_id);
             if($arr == false || $arr2 == false) {
                 continue;
@@ -87,16 +135,13 @@ class Admin extends CI_Controller
 
         $content .= '
             <h1 style="text-align: center; line-height: 6px; font-size: 30px">Tibag High School</h1>
-            <p style="text-align: center; line-height: 5px">Tibag, Tarlac City, Tarlac</p>
+            <p style="text-align: center; line-height: 5px">Tibag, Tarlac</p>
             <hr />
             <h3 style="text-align: center; line-height: 5px">Evaluation Result Summary</h3>
             <table border="1" cellpadding="5" cellspacing="0">
                 <tr>
                     <th>
                         <b>Name</b>
-                    </th>
-                    <th>
-                        <b>Advisory Year & Section</b>
                     </th>
                     <th>
                         <b>Explicit Curriculum</b>
@@ -114,7 +159,6 @@ class Admin extends CI_Controller
         ';
         foreach($items as $item) {
             $name = $item['lname'].", ".$item['fname'];
-            $year = $item['level']."-".$item['name'];
             $ec = $item['ec_sc'];
             $ic = $item['ic_sc'];
             $dr = $item['desc_rating'];
@@ -123,9 +167,6 @@ class Admin extends CI_Controller
             <tr>
                 <td>
                     $name
-                </td>
-                <td>
-                    $year
                 </td>
                 <td>
                     $ec

@@ -56,6 +56,10 @@ class Answer_model extends CI_Model
             }
             $ret['scores'] = $scores;
         } else {
+            print_r($this->db->error());
+            echo "<pre>";
+            echo "</pre>";
+            echo $this->db->last_query();
             return false;
         }
         // Explicit mode

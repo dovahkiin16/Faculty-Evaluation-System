@@ -70,6 +70,8 @@ $route['add_section'] = 'admin/add_section';
 $route['section/add'] = 'admin/create_section';
 $route['section/view'] = 'admin/view_section';
 $route['print'] = 'admin/results';
+$route['result/teach_list'] = 'admin/teach_list';
+$route['result/teach_res/(:num)'] = 'admin/teach_res/$1';
 
 // student routes
 $route['evaluate'] = 'student';

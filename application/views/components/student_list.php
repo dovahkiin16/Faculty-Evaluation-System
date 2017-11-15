@@ -22,9 +22,6 @@
                             <th>
                                 Section
                             </th>
-                            <th>
-                                Action
-                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,11 +36,6 @@
                                     </td>
                                     <td>
                                         <?=$teacher['level']?>-<?=$teacher['name']?>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-danger teacher-delete" value="<?=$teacher['id']?>">
-                                            DELETE
-                                        </button>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

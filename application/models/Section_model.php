@@ -28,7 +28,7 @@ class Section_model extends CI_Model
     }
 
     public function fetch_evaluator() {
-        $sql = "SELECT * FROM `section` WHERE `id` NOT IN (SELECT `section_id` FROM `schedule`)";
+        $sql = "SELECT * FROM `section` WHERE `id` NOT IN (SELECT `section_id` FROM `schedule`) ORDER BY `level` ASC, `name` ASC";
         $query = $this->db->query($sql);
         if($query->num_rows() > 0) {
             return $query->result();

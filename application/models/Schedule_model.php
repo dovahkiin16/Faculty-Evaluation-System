@@ -45,7 +45,7 @@ class Schedule_model extends CI_Model
     }
 
     public function get_schedules() {
-        $query = $this->db->query("SELECT `schedule`.`exam_room_no`, `schedule`.`start_time`, `section`.`name` AS sname, `section`.`level` AS slevel, `user`.`fname` AS fname, `user`.`lname` AS lname
+        $query = $this->db->query("SELECT `schedule`.`exam_room_no`, `schedule`.`start_time`,`schedule`.`end_time`, `section`.`name` AS sname, `section`.`level` AS slevel, `user`.`fname` AS fname, `user`.`lname` AS lname
                               FROM `schedule` 
                               INNER JOIN `section` ON `schedule`.`section_id`=`section`.`id`
                               INNER JOIN `user` ON `schedule`.`teacher_id`=`user`.`id`");
@@ -108,20 +108,20 @@ class Schedule_model extends CI_Model
 
         // insert data
         $this->db->trans_start();
-        foreach($evaluators as $evaluator):
+        foreach($evaluators as $evaluator) {
             $query = $this->db->query("SELECT * FROM subject_teacher WHERE section_id='$evaluator'");
-            foreach($query->result() as $teacher) {
-                $data = array(
-                    'id' => NULL,
-                    'start_time' => $sdate->format("Y-m-d H:i:s"),
-                    'end_time' => $edate->format("Y-m-d H:i:s"),
-                    'exam_room_no' => $room,
-                    'section_id' => $evaluator,
-                    'teacher_id' => $teacher->teacher_id
-                );
-                $this->db->insert('schedule', $data);
+            foreach ($query->result() as $teacher) {
+                $isd = NULL;
+                $start_time = $sdate->format("Y-m-d H:i:s");
+                $end_time = $edate->format("Y-m-d H:i:s");
+                $exam_room_no = $room;
+                $section_id = $evaluator;
+                $teacher_id = $teacher->teacher_id;
+                $this->db->query("INSERT INTO schedule 
+                    VALUES('$isd', '$start_time', '$end_time', '$exam_room_no', '$section_id', '$teacher_id', NOW())");
             }
-        endforeach;
+        }
+        echo "ASDFASDFASDFASDF";
         $this->db->trans_complete();
         return $this->db->trans_status();
     }

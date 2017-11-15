@@ -11,7 +11,7 @@
     <?php else: ?>
         <div class="row my-4">
             <div class="col-12 card p-md-0">
-                <div class="header pt-3">
+                <div class="header pt-3" >
 
                     <div class="row d-flex justify-content-center">
                         <h3 class="black-text pt-3 font-bold">Evaluation Form</h3>
@@ -27,47 +27,49 @@
                             <p class="grey-text">
                                 How well does the teacher teach the core Subject?
                             </p>
-                            <table class="table table-striped table-bordered">
+                            <table class="table table-striped table-bordered" id="eval-tbl">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Question
+                                        </th>
+                                        <th>
+                                            Outstanding
+                                        </th>
+                                        <th>
+                                            Very Satisfactory
+                                        </th>
+                                        <th>
+                                            Satisfactory
+                                        </th>
+                                        <th>
+                                            Unsatisfactory
+                                        </th>
+                                        <th>
+                                            Strongly Disagree
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                        </th>
+                                        <th class="text-center">
+                                            (5)
+                                        </th>
+                                        <th class="text-center">
+                                            (4)
+                                        </th>
+                                        <th class="text-center">
+                                            (3)
+                                        </th>
+                                        <th class="text-center">
+                                            (2)
+                                        </th>
+                                        <th class="text-center">
+                                            (1)
+                                        </th>
+                                    </tr>
+                                </thead>
                                 <tbody>
-                                <tr>
-                                    <th>
-                                        Question
-                                    </th>
-                                    <th>
-                                        Outstanding
-                                    </th>
-                                    <th>
-                                        Very Satisfactory
-                                    </th>
-                                    <th>
-                                        Satisfactory
-                                    </th>
-                                    <th>
-                                        Unsatisfactory
-                                    </th>
-                                    <th>
-                                        Strongly Disagree
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <th>
-                                    </th>
-                                    <th>
-                                        (5)
-                                    </th>
-                                    <th>
-                                        (4)
-                                    </th>
-                                    <th>
-                                        (3)
-                                    </th>
-                                    <th>
-                                        (2)
-                                    </th>
-                                    <th>
-                                        (1)
-                                    </th>
-                                </tr>
                                 <?php foreach($ec as $q): ?>
                                     <tr>
                                         <td>
@@ -103,8 +105,8 @@
                                 How well does the teacher model the core values through how he/she behaves with students
                                 and with other staff persons?
                             </p>
-                            <table class="table table-striped table-bordered">
-                                <tbody>
+                            <table class="table table-striped table-bordered" id="eval-tbl2">
+                                <thead>
                                 <tr>
                                     <th>
                                         Question
@@ -128,22 +130,24 @@
                                 <tr>
                                     <th>
                                     </th>
-                                    <th>
+                                    <th class="text-center">
                                         (5)
                                     </th>
-                                    <th>
+                                    <th class="text-center">
                                         (4)
                                     </th>
-                                    <th>
+                                    <th class="text-center">
                                         (3)
                                     </th>
-                                    <th>
+                                    <th class="text-center">
                                         (2)
                                     </th>
-                                    <th>
+                                    <th class="text-center">
                                         (1)
                                     </th>
                                 </tr>
+                                </thead>
+                                <tbody>
                                 <?php foreach($ic as $q): ?>
                                     <tr id="<?=$q->id?>">
                                         <td>

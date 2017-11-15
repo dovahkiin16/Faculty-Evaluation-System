@@ -20,7 +20,7 @@
                                 Employee Number
                             </th>
                             <th>
-                                Action
+                                View Result
                             </th>
                         </tr>
                     </thead>
@@ -35,9 +35,10 @@
                                         <?=$teacher['id_number']?>
                                     </td>
                                     <td>
-                                        <button class="btn btn-danger teacher-delete" value="<?=$teacher['id']?>">
-                                            DELETE
-                                        </button>
+                                        <a class="btn btn-success"
+                                           href="<?php echo base_url("result/teach_res/").$teacher['id'];?>">
+                                            View Result
+                                        </a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

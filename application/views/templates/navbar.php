@@ -35,7 +35,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-primary" aria-labelledby="sched-dropdown">
                                 <a class="dropdown-item" href="<?=base_url("schedule/add");?>">Create Schedule</a>
-                                <a class="dropdown-item" href="<?=base_url("schedule/view");?>">View Schedule</a>
+                                <a class="dropdown-item" href="<?=base_url("schedule/view");?>">View Schedules</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
