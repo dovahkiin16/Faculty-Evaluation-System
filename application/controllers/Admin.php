@@ -288,7 +288,6 @@ class Admin extends CI_Controller
 
     public function confirm() {
         $this->load->model('user_model');
-        print_r($_POST);
         $res = false;
         if($this->input->post('del_all')) {
             $res = $this->user_model->delete_user($this->input->post('userId'));
