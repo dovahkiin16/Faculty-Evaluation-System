@@ -25,5 +25,14 @@ $(document).ready(function() {
         var id = event.target.value;
         $("#expand-" + id).toggle(300);
     });
+    $("#account_type").change(function() {
+        if($("#account_type")[0].value === "teacher") {
+            $($("#section_selector")[0]).prop("disabled", true).prop("required", false);
+            $($("input.select-dropdown")[1]).prop("disabled", true).prop("required", false);
+        } else if ($("#account_type")[0].value === "student") {
+            $($("#section_selector")[0]).prop("disabled", false).prop("required", true);
+            $($("input.select-dropdown")[1]).prop("disabled", false).prop("required", true);
+        }
+    });
 });
 

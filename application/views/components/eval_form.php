@@ -46,7 +46,7 @@
                                             Unsatisfactory
                                         </th>
                                         <th>
-                                            Strongly Disagree
+                                            Poor
                                         </th>
                                     </tr>
                                     <tr>
@@ -124,7 +124,7 @@
                                         Unsatisfactory
                                     </th>
                                     <th>
-                                        Strongly Disagree
+                                        Poor
                                     </th>
                                 </tr>
                                 <tr>

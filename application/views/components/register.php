@@ -18,7 +18,7 @@
                         <div class="col-6">
                             <div>
                                 <label>Account type</label>
-                                <select class="mdb-select" name="user_type" required>
+                                <select class="mdb-select" name="user_type" id="account_type" required>
                                     <option value="" disabled selected>Account Type</option>
                                     <option value="student">Student</option>
                                     <option value="teacher">Teacher</option>
@@ -26,7 +26,7 @@
                             </div>
                             <div>
                                 <label>Section</label>
-                                <select class="mdb-select" name="section" required>
+                                <select class="mdb-select" name="section" id="section_selector" required>
                                     <option value="" disabled selected>Section</option>
                                     <option value="-1">None</option>
                                     <?php if(isset($sections) && $sections): ?>
