@@ -71,12 +71,12 @@
                                 </thead>
                                 <tbody>
                                 <?php foreach($ec as $q): ?>
-                                    <tr>
+                                    <tr id="q-<?=$q->id?>-row">
                                         <td>
                                             <?=$q->question?>
                                         </td>
                                         <td class="text-center">
-                                            <input type="radio" name="q-<?=$q->id?>" id="q-<?=$q->id?>-5" value="5" required/>
+                                            <input type="radio" name="q-<?=$q->id?>" id="q-<?=$q->id?>-5" value="5" required="required"/>
                                             <label for="q-<?=$q->id?>-5"></label>
                                         </td>
                                         <td class="text-center">
@@ -149,12 +149,12 @@
                                 </thead>
                                 <tbody>
                                 <?php foreach($ic as $q): ?>
-                                    <tr id="<?=$q->id?>">
+                                    <tr id="q-<?=$q->id?>-row">
                                         <td>
                                             <?=$q->question?>
                                         </td>
                                         <td class="text-center">
-                                            <input type="radio" name="q-<?=$q->id?>" id="q-<?=$q->id?>-5" value="5" required/>
+                                            <input type="radio" name="q-<?=$q->id?>" id="q-<?=$q->id?>-5" value="5" required="required"/>
                                             <label for="q-<?=$q->id?>-5"></label>
                                         </td>
                                         <td class="text-center">
@@ -179,7 +179,7 @@
                             </table>
                             <div class="row d-flex align-items-center mb-4">
                                 <div class="col-md-3 col-md-6 text-center">
-                                    <button type="submit" class="btn btn-pink btn-block btn-rounded z-depth-1">Submit</button>
+                                    <button type="submit" id="submit-eval" class="btn btn-pink btn-block btn-rounded z-depth-1">Submit</button>
                                 </div>
                             </div>
                         </form>

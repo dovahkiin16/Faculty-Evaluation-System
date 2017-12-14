@@ -40,8 +40,10 @@
         <div class="col-2"></div>
         <!-- Login component -->
         <div class="col-8 card p-md-0">
+            <div id="error-holder" class="alert alert-danger" style="display: none">
+                <strong>Error</strong> <span id="error-message"></span>
+            </div>
             <div class="header pt-3">
-
                 <div class="row d-flex justify-content-center">
                     <h3 class="black-text pt-3 font-bold">Schedule</h3>
                 </div>
@@ -124,7 +126,7 @@
                     </div>
                     <div class="d-flex justify-content-start">
                         <div class="row mx-0 d-flex justify-content-start">
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="submit" class="btn btn-success" id="submit-sched">Submit</button>
                         </div>
                     </div>
                 </form>

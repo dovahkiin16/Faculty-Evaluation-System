@@ -34,5 +34,47 @@ $(document).ready(function() {
             $($("input.select-dropdown")[1]).prop("disabled", false).prop("required", true);
         }
     });
+    $("#submit-eval").click(function() {
+        var name = "";
+        var hasChecks = false;
+        $("input[type='radio']").each(function() {
+            if(name!==$(this).attr("name") || name==="") {
+                if(name!=="") {
+                    if(!hasChecks) {
+                        $("#"+name+"-row").css("border", "2px solid red");
+                    } else {
+                        $("#"+name+"-row").css("border-color", "rgb(233, 236, 239)")
+                    }
+                }
+                name = $(this).attr("name");
+                hasChecks = false;
+            }
+            if($(this).is(':checked')){
+                console.log("has check");
+                hasChecks = true;
+            }
+        });
+        if(!hasChecks) {
+            $("#"+name+"-row").css("border", "2px solid red");
+        } else {
+            $("#"+name+"-row").css("border-color", "rgb(233, 236, 239)")
+        }
+    });
+    $("#submit-sched").click(function(event) {
+        $("input[type='text'].select-dropdown").each(function() {
+            console.log($(this).val());
+            if($(this).val() === 'Day' || $(this).val() === 'Month' || $(this).val() === 'Year' || $(this).val() === 'Room') {
+                $("#error-message").text("The " + $(this).val() + " field is missing");
+                $("#error-holder").show();
+                event.preventDefault();
+                return;
+            }
+            if($("input[type='radio']:checked").length === 0) {
+                $("#error-message").text("Please choose an evaluator");
+                $("#error-holder").show();
+                event.preventDefault();
+            }
+        });
+    });
 });
 

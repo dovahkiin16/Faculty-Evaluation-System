@@ -1,5 +1,8 @@
 <div class="container">
-    <div class="row login-row form-gradient">
+    <div class="row">
+        <h3 style="margin:30px auto">Faculty Information and Evaluation System</h3>
+    </div>
+    <div class="row form-gradient">
         <!-- Padding -->
         <div class="col-md-3 px-4">
             <h3 class="text-center">Vision</h3>
