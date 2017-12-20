@@ -22,6 +22,9 @@
                             <th>
                                 Section
                             </th>
+                            <th>
+                                Action
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,6 +39,9 @@
                                     </td>
                                     <td>
                                         <?=$teacher['level']?>-<?=$teacher['name']?>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-danger">Reset password</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
