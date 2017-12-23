@@ -149,4 +149,13 @@ class User_model extends CI_Model{
                                         ORDER BY `level` ASC, `name` ASC, `lname` ASC, `fname` ASC");
         return $query->result_array();
     }
+
+    public function update_password($userId, $pass) {
+        return $this->db->simple_query("UPDATE `user` SET `pwd` = '$pass' WHERE id='$userId'");
+    }
+
+    public function reset_pass($userId) {
+        $pass = password_hash('change_me', PASSWORD_BCRYPT);
+        return $this->update_password($userId, $pass);
+    }
  }

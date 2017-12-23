@@ -72,6 +72,9 @@ $route['section/view'] = 'admin/view_section';
 $route['print'] = 'admin/results';
 $route['result/teach_list'] = 'admin/teach_list';
 $route['result/teach_res/(:num)'] = 'admin/teach_res/$1';
+$route['user/resetPwd/(:num)'] = 'admin/reset_password/$1';
+$route['user/changePass'] = 'admin/change_password';
+$route['user/changepwd'] = 'admin/change_pwd_page';
 
 // student routes
 $route['evaluate'] = 'student';

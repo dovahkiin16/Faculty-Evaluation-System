@@ -58,12 +58,19 @@
                         </li>
                     </ul>
                 <?php endif; ?>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link waves-effect waves-light">
+                <ul class="navbar-nav ml-auto dropdown-toggle">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link waves-effect waves-light"
+                           id="prof-dropdown"
+                           data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false">
                             <i class="fa fa-user-circle"></i>
                             <?=$_SESSION['name']?>
                         </a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="prof-dropdown">
+                            <a class="dropdown-item" href="<?php echo base_url("user/changepwd")?>">Change Password</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link waves-effect waves-light" href="<?=base_url('logout');?>">

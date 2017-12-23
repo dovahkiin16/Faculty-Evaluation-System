@@ -1,4 +1,13 @@
 <div class="container">
+    <?php if(isset($status) && $status == 'Password reset failed'): ?>
+        <div class="alert alert-danger mt-3">
+            <strong>Error!</strong> <?=$status?>
+        </div>
+    <?php elseif (isset($status)): ?>
+        <div class="alert alert-success mt-3">
+            <strong>Success!</strong> <?=$status?>
+        </div>
+    <?php endif; ?>
     <div class="row my-4">
         <div class="col-2"></div>
         <!-- Login component -->
@@ -41,7 +50,7 @@
                                         <?=$teacher['level']?>-<?=$teacher['name']?>
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-danger">Reset password</a>
+                                        <a href="<?php echo base_url("user/resetPwd/" . $teacher['id']);?>?src=student" class="btn btn-danger">Reset password</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

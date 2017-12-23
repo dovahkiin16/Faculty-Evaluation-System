@@ -24,6 +24,7 @@ class Admin extends CI_Controller
     $this->load->model('user_model');
     $this->redir_if_loggedIn();
     $data['list'] = $this->user_model->fetch_teachers();
+    $data['status'] = $this->session->flashdata('status');
     $this->load->view('/templates/header');
     $this->load->view('/templates/navbar');
     $this->load->view('/components/teacher_list', $data);
@@ -77,6 +78,7 @@ class Admin extends CI_Controller
     public function student_dashboard() {
         $this->load->model('user_model');
         $data['list'] = $this->user_model->fetch_students();
+        $data['status'] = $this->session->flashdata('status');
         $this->load->view('/templates/header');
         $this->load->view('/templates/navbar');
         $this->load->view('/components/student_list', $data);
@@ -250,6 +252,56 @@ class Admin extends CI_Controller
         $this->load->view('/templates/navbar');
         $this->load->view('/components/section_form', $res);
         $this->load->view('/components/section_list', $list);
+        $this->load->view('/templates/footer');
+    }
+
+    public function reset_password($userId) {
+        $this->redir_if_loggedIn();
+        $this->load->model("user_model");
+        $res = $this->user_model->reset_pass($userId);
+        if ($res)
+        {
+            $user = $this->user_model->fetch_user($userId);
+            $name = $user->fname . ' ' . $user->lname;
+            $this->session->set_flashdata('status', "$name's password has been reset to 'change_me'");
+        } else {
+            $this->session->set_flashdata('status', "Password reset failed");
+        }
+        $fr = $this->input->get('src');
+        redirect('/dashboard/' . $fr, 'location');
+    }
+
+    public function change_password() {
+        $pass = $this->input->post('pwd');
+        $cpwd = $this->input->post('cpwd');
+        if($pass != $cpwd)
+        {
+            $this->session->set_flashdata('status', "Passwords didn't matched");
+            redirect('user/changepwd', 'location');
+        }
+        $pass_hashed = password_hash($pass, PASSWORD_BCRYPT);
+        $this->load->model('user_model');
+        $userId = $this->session->userdata('userId');
+        $res = $this->user_model->update_password($userId, $pass_hashed);
+        if ($res)
+        {
+            $this->session->set_flashdata('status', 'Password has been updated!');
+        }
+        else
+        {
+            $this->session->set_flashdata('status', 'Password update failed!');
+        }
+        redirect('user/changepwd', 'location');
+    }
+
+    public function change_pwd_page() {
+        if(!$this->session->has_userdata('userType')) {
+            redirect('/login', 'refresh');
+        }
+        $data['status'] = $this->session->flashdata('status');
+        $this->load->view('/templates/header');
+        $this->load->view('/templates/navbar');
+        $this->load->view('/components/change_pwd', $data);
         $this->load->view('/templates/footer');
     }
 
